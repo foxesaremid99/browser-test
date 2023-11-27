@@ -6,7 +6,7 @@
   <body>
 
     <div id="in"></div>
-    a
+    1
     <input id="input" placeholder="Search Bing or enter URL" type="text" style="width: 500px;  border-radius: 25px; border: 2px solid rgb(222, 11, 43); outline: none;">
     <button id="say" style="width: 100px;  border-radius: 25px; border: 2px solid rgb(222, 11, 43);">Open in tab</button>
     <button id="ab" style="width: 100px;  border-radius: 25px; border: 2px solid rgb(222, 11, 43);">AB cloak</button>
@@ -21,7 +21,7 @@
     <script>
       function changetext() {
 
-        document.getElementById('input').value = document.getElementById('result').src;
+        document.getElementById('input').value = document.getElementById('result').contentWindow.location.href;
 
       };
 
@@ -97,7 +97,7 @@
         }
         isValidUrl(word) ? word = word : word = "https://www.bing.com/search?q=" + link
 
-        window.open(document.URL, "_blank");
+        window.open(window.location.href, "_blank");
 
 
       };
