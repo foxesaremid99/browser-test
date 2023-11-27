@@ -1,0 +1,16 @@
+body {
+ background-color: orange;
+}
+
+p {
+ font-family: courier;
+ color: rgb(222, 11, 43);
+}
+
+input {
+ background-color: orange;
+}
+
+button {
+ background-color: orange;
+}

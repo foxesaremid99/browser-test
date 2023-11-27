@@ -1,0 +1,148 @@
+<html>
+  <header>
+    <title>Learning ig</title>
+    <link rel="stylesheet" href="index.css">
+  </header>
+
+  <body>
+
+    <div id="in"></div>
+    <input id="input" placeholder="Search Bing or enter URL" type="text" style="width: 500px;  border-radius: 25px; border: 2px solid rgb(222, 11, 43); outline: none;">
+    <button id="say" style="width: 100px;  border-radius: 25px; border: 2px solid rgb(222, 11, 43);">Open in tab</button>
+    <button id="ab" style="width: 100px;  border-radius: 25px; border: 2px solid rgb(222, 11, 43);">AB cloak</button>
+    <button id="direct" style="width: 100px;  border-radius: 25px; border: 2px solid rgb(222, 11, 43);">Direct Open</button>
+
+    <p> </p>
+
+    <iframe id="result" onload="checksrc()" style="width: 1000px; height: 750px; resize: both; overflow: auto; border: 2px solid rgb(222, 11, 43);"></iframe>
+
+
+
+    <script>
+      function changetext() {
+
+        document.getElementById('input').value = document.getElementById('result').src;
+
+      };
+
+      function isValidUrl(_string) {
+        const matchPattern = /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[\:?\d]*)\S*$/;
+        return matchPattern.test(_string);
+      }
+
+      function checksrc() {
+        try {
+          // get the location of the iframe's contentWindow
+          var curSrc = this.contentWindow.location.href;
+          // do something with curSrc
+          // alert(curSrc);
+        } catch (e) {
+          alert("new");
+          changetext();
+        }
+      };
+
+
+      function check() {
+
+        var link = document.getElementById('input').value;
+        var word = "";
+
+        if (link.includes('https://') || link.includes("http://")) {
+          word = link;
+        } else {
+          word = "https://" + link;
+        }
+        isValidUrl(word) ? word = word : word = "https://www.bing.com/search?q=" + link
+
+        document.getElementById('result').src = word;
+        changetext();
+
+
+      };
+
+      function ab() {
+
+        var link = document.getElementById('input').value;
+        var word = "";
+
+        if (link.includes('https://') || link.includes("http://")) {
+          word = link;
+        } else {
+          word = "https://" + link;
+        }
+        isValidUrl(word) ? word = word : word = "https://www.bing.com/search?q=" + link
+
+        var win = window.open()
+        var url = word
+        var iframe = win.document.createElement('iframe')
+        iframe.style.width = "100%";
+        iframe.style.height = "100%";
+        iframe.style.border = "none";
+        iframe.src = url
+        win.document.body.appendChild(iframe)
+
+
+      };
+
+      function ac() {
+
+        var link = document.getElementById('input').value;
+        var word = "";
+
+        if (link.includes('https://') || link.includes("http://")) {
+          word = link;
+        } else {
+          word = "https://" + link;
+        }
+        isValidUrl(word) ? word = word : word = "https://www.bing.com/search?q=" + link
+
+        var win = window.open()
+        var url = word
+        var iframe = win.document.createElement('iframe')
+        iframe.style.width = "100%";
+        iframe.style.height = "100%";
+        iframe.style.border = "none";
+        iframe.src = url
+        win.document.body.appendChild(iframe)
+
+
+      };
+
+      function dir() {
+
+        var link = document.getElementById('input').value;
+        var word = "";
+
+        if (link.includes('https://') || link.includes("http://")) {
+          word = link;
+        } else {
+          word = "https://" + link;
+        }
+        isValidUrl(word) ? word = word : word = "https://www.bing.com/search?q=" + link
+
+        window.open(window.location.href, "_blank");
+
+
+      };
+
+
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+          event.preventDefault();
+          document.getElementById("say").click();
+        }
+      });
+      document.getElementById('say').addEventListener('click', check);
+      document.getElementById('ab').addEventListener('click', ab);
+      document.getElementById('direct').addEventListener('click', dir);
+      document.getElementById('abclockthistab').addEventListener('click', ac);
+
+    </script>
+    <p>some links</p>
+    <p> https://bing.com </p>
+    <p> https://www.mathsisfun.com/games/2048.html </p>
+    <button id="abclockthistab" style="width: 200px;  border-radius: 25px; border: 2px solid rgb(222, 11, 43);">Cloak this page in about:blank</button>
+  </body>
+
+</html>
