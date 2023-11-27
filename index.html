@@ -96,14 +96,7 @@
         }
         isValidUrl(word) ? word = word : word = "https://www.bing.com/search?q=" + link
 
-        var win = window.open()
-        var url = word
-        var iframe = win.document.createElement('iframe')
-        iframe.style.width = "100%";
-        iframe.style.height = "100%";
-        iframe.style.border = "none";
-        iframe.src = url
-        win.document.body.appendChild(iframe)
+        window.open(window.location.href, "_blank");
 
 
       };
@@ -120,7 +113,7 @@
         }
         isValidUrl(word) ? word = word : word = "https://www.bing.com/search?q=" + link
 
-        window.open(window.location.href, "_blank");
+        window.open(word, "_blank");
 
 
       };
